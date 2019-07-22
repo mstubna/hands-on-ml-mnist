@@ -5,10 +5,12 @@ import pandas as pd
 from sklearn.datasets import fetch_openml
 
 # load the data set
-mnist = fetch_openml('mnist_784', version=1)
-
-X, y = mnist['data'], mnist['target']
-y = y.astype(np.uint8)
+try:
+  mnist
+except NameError:
+  mnist = fetch_openml('mnist_784', version=1)
+  X, y = mnist['data'], mnist['target']
+  y = y.astype(np.uint8)
 
 # visualize some digits in the data set
 fig, axs = plt.subplots(nrows=10, ncols=20, figsize=(8, 4))
