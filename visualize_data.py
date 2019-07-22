@@ -11,7 +11,8 @@ X, y = mnist['data'], mnist['target']
 y = y.astype(np.uint8)
 
 # visualize some digits in the data set
-fig, axs = plt.subplots(nrows=10, ncols=20)
+fig, axs = plt.subplots(nrows=10, ncols=20, figsize=(8, 4))
+fig.subplots_adjust(left=0, right=1, bottom=0, top=1, wspace=0, hspace=0)
 for row in range(10):
   digits = X[y == row]
   for col in range(20):
@@ -23,7 +24,5 @@ for row in range(10):
       interpolation='nearest'
     )
     axis.axis('off')
-
-
 
 plt.show()
